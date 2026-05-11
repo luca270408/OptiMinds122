@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OptiMinds - Gorgeous Websites</title>
+  </head>
+  <body>
+    <script>
+      // Prevent polyfills (like formdata-polyfill or whatwg-fetch) from throwing TypeError
+      // when they try to overwrite window.fetch which is a getter-only property in modern browsers.
+      if (typeof window !== 'undefined' && window.fetch) {
+        Object.defineProperty(window, 'fetch', {
+          value: window.fetch,
+          writable: true,
+          configurable: true
+        });
+      }
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
